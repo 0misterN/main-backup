@@ -1,0 +1,5 @@
+@echo on & setlocal
+tasklist /v /fi "STATUS eq running" /fi "imagename ne cmd.exe" /fi "imagename ne conhost.exe" /fo list >tmp.txt
+for /f %%a in (find "PID:" tmp.txt) do (echo %%a)
+echo finished
+exit
